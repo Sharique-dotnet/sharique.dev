@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import logo from '../assets/logo.png'
 import { NAV } from '../data'
 import { useActiveSection, useScrolled } from '../hooks'
 
@@ -12,7 +13,7 @@ export default function Header() {
     <header className={'header' + (scrolled || menu ? ' solid' : '')}>
       <div className="container header-bar">
         <a href="#home" onClick={close} aria-label="Back to top" className="logo">
-          <span className="logo-mark mono">SA</span>
+          <img src={logo} alt="" width={34} height={34} className="logo-mark" />
           <span className="mono">sharique<span className="accent">.</span>ansari</span>
         </a>
 
