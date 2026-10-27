@@ -217,18 +217,8 @@ button { font: inherit; color: inherit; }
 
 .logo { display: flex; align-items: center; gap: 12px; color: var(--text); font-size: 14px; }
 .logo:hover { color: var(--text); }
-.logo-mark {
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(61, 214, 245, .45);
-  border-radius: 8px;
-  background: rgba(61, 214, 245, .06);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--accent);
-}
+/* 96px source shown at 34px so it stays sharp on high-DPI screens */
+.logo-mark { display: block; width: 34px; height: 34px; border-radius: 8px; }
 
 .header-desktop { display: none; align-items: center; gap: 32px; }
 .nav { display: flex; align-items: center; gap: 26px; }
