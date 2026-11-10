@@ -1,6 +1,6 @@
 // All site content. Edit text here; section components only handle layout.
 
-export const EMAIL = 'ansishrq@gmail.com'
+export const EMAIL = 'hello@sharique.dev'
 export const LINKEDIN = 'https://www.linkedin.com/in/sharique-ansari-0b59a742'
 
 // ===== Navigation =====
