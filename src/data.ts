@@ -18,17 +18,16 @@ export const NAV_MAP: Record<string, string> = { workflow: 'domains', principles
 
 // ===== Hero =====
 export const HERO = {
-  prompt: 'initializing developer profile...',
   name: 'Sharique Ansari',
   role: 'Backend-focused .NET Developer',
   title: 'Enterprise backends, engineered to last',
-  intro: 'I architect secure APIs and high-performance data layers in C# and ASP.NET Core — and own them all the way to production.',
-  stats: ['6+ years', '4 platforms shipped', '.NET 3.1 → 9 modernization', 'current on .NET 10'],
+  intro: 'I design secure APIs and fast data layers in C# and ASP.NET Core, and own them all the way to production.',
   file: 'developer.profile.cs',
   terminal: ['dotnet run --profile developer', '✓ status: open to remote opportunities'],
 }
 
-// Syntax colors for the hero code editor
+// Syntax colors for the hero code editor.
+// Keep each code line to 54 characters or fewer so it fits the editor without clipping.
 const COL = { k: '#b69cff', t: '#5fe0c4', s: '#e6c07b', c: '#6b737e', p: '#cfd4da', m: '#9fdcf0', o: '#8a929c' }
 type ColKey = keyof typeof COL
 export type Token = { color: string; text: string }
@@ -40,18 +39,17 @@ const prop = (type: string, name: string, val: string, comment?: string): [ColKe
 }
 
 export const CODE: Token[][] = ([
-  [['c', '// building systems that scale']],
   [['k', 'namespace'], ['p', ' Portfolio;']],
   [],
   [['k', 'public sealed record '], ['t', 'Developer']],
   [['o', '{']],
   prop('string', 'Name', '"Sharique Ansari"'),
-  prop('string', 'Role', '"Backend-focused .NET Developer"'),
+  prop('string', 'Role', '"Backend Developer"'),
   prop('int', 'Years', '6', 'and counting'),
-  prop('string[]', 'Stack', '["C#", ".NET 10", "SQL Server"]'),
+  prop('string[]', 'Stack', '["C#", ".NET", "SQL"]'),
   prop('string', 'Approach', '"Clean Architecture"'),
-  prop('string', 'Ships', '"Design → Production"'),
-  prop('bool', 'Hiring', 'true', 'let’s talk'),
+  prop('string', 'Ships', '"To production"'),
+  prop('bool', 'Hireable', 'true', 'let’s talk'),
   [['o', '}']],
 ] as [ColKey, string][][]).map(l => (l.length ? l : [['p', ' '] as [ColKey, string]]).map(([c, text]) => ({ color: COL[c], text })))
 
@@ -69,7 +67,7 @@ export const SNAPSHOT = [
 // Each paragraph is a list of parts; { em } parts render highlighted
 export const ABOUT: (string | { em: string })[][] = [
   ['For more than six years I’ve engineered enterprise software across HR, finance, education and corporate platforms — the kind of systems teams depend on every day.'],
-  ['My specialty is the backend: ', { em: 'secure APIs, robust domain logic and data layers that perform under real-world load' }, '. I bring architectural discipline to every codebase, so it stays fast, stable and easy to evolve.'],
+  ['My specialty is the backend: ', { em: 'secure APIs, domain logic and data layers that perform under real-world load' }, '. I bring architectural discipline to every codebase, so it stays fast, stable and easy to evolve.'],
   ['I own features end to end — from first design conversation to verified production release — and I’m now extending that reach into Azure and CI/CD.'],
 ]
 
@@ -86,12 +84,12 @@ export const FLOW = [
 // Tier: 1 = core, 0 = advanced, 2 = familiar
 export type Tier = 0 | 1 | 2
 
-export const CORE_SKILLS: { glyph: string; level: string; title: string; context: string; items: [string, Tier][] }[] = [
-  { glyph: '{ api }', level: 'expert', title: 'API Engineering', context: 'Secure, versionable REST services that encapsulate complex business rules.',
+export const CORE_SKILLS: { glyph: string; title: string; context: string; items: [string, Tier][] }[] = [
+  { glyph: '{ api }', title: 'API Engineering', context: 'Secure, versionable REST services that encapsulate complex business rules.',
     items: [['C#', 1], ['ASP.NET Core Web API', 1], ['REST API design', 1], ['JWT authentication', 0], ['ASP.NET MVC', 0], ['.NET 10', 1], ['.NET 9', 0]] },
-  { glyph: '[ arch ]', level: 'expert', title: 'Software Architecture', context: 'Layered, loosely coupled systems that scale with the business — not against it.',
+  { glyph: '[ arch ]', title: 'Software Architecture', context: 'Layered, loosely coupled systems that stay easy to change.',
     items: [['Clean Architecture', 1], ['SOLID', 1], ['Dependency Injection', 1], ['Repository Pattern', 0]] },
-  { glyph: '< sql >', level: 'expert', title: 'Data Engineering', context: 'Relational design, performant queries and data access you can trust.',
+  { glyph: '< sql >', title: 'Data Engineering', context: 'Relational design, performant queries and data access you can trust.',
     items: [['SQL Server', 1], ['Entity Framework Core', 1], ['LINQ', 0], ['Stored procedures', 0], ['PostgreSQL', 2], ['Dapper', 2]] },
 ]
 
@@ -103,11 +101,11 @@ export const MORE_SKILLS: { title: string; context: string; items: string[]; das
 ]
 
 // ===== Experience =====
-// tone: current = filled dot, accent = cyan outline, muted = gray outline
-export const TIMELINE: { when: string; title: string; sub: string; tone: 'current' | 'accent' | 'muted' }[] = [
-  { when: 'Nov 2019 — May 2026', title: 'Senior .NET Developer', sub: 'Enterprise software · 6.5 years', tone: 'current' },
-  { when: 'Freelance', title: 'Backend & Web Developer', sub: 'News & media domain — mobile app backend and Angular web.', tone: 'accent' },
-  { when: 'Now', title: 'Continuous growth', sub: 'Azure, CI/CD, and PostgreSQL with Dapper.', tone: 'muted' },
+// tone: current = filled accent dot, muted = gray outline
+export const TIMELINE: { when: string; title: string; sub: string; tone: 'current' | 'muted' }[] = [
+  { when: 'Now', title: 'Learning Azure and CI/CD', sub: 'Also PostgreSQL with Dapper.', tone: 'current' },
+  { when: 'Nov 2019 — May 2026', title: 'Senior .NET Developer', sub: 'Enterprise software · 6.5 years', tone: 'muted' },
+  { when: 'Freelance', title: 'Backend & Web Developer', sub: 'News & media domain — mobile app backend and Angular web.', tone: 'muted' },
   { when: 'Training', title: 'C# .NET, SQL Server & ASP.NET MVC', sub: 'Professional certification', tone: 'muted' },
   { when: '2010', title: 'B.Sc. Mathematics', sub: 'Mumbai University', tone: 'muted' },
 ]
@@ -119,11 +117,11 @@ export const GROUPS = [
     'Architected and delivered 120+ RESTful endpoints in ASP.NET Core across multiple enterprise applications.',
     'Hardened the API surface with JWT authentication and enforced clean layer boundaries through Clean Architecture and SOLID.'] },
   { title: 'Domain logic & persistence', tags: ['EF Core', 'SQL Server', 'Clean Architecture'], points: [
-    'Engineered business-critical domain logic and data access with Entity Framework Core, LINQ and SQL Server.',
+    'Engineered domain logic and data access with Entity Framework Core, LINQ and SQL Server.',
     'Applied the Repository Pattern and dependency injection to keep persistence decoupled and testable.'] },
   { title: 'Platform modernization', tags: ['.NET 9', '.NET 10', 'ASP.NET Core', 'Angular'], points: [
     'Drove the migration of 15+ backend modules from .NET Core 3.1 to .NET 9, in step with an Angular 20 upgrade.',
-    'Refactored high-traffic modules, cutting average API response times by roughly 40%.',
+    'Refactored high-traffic modules, cutting average API response times by about 40%.',
     'Current on .NET 10 and its latest platform and performance improvements.'] },
   { title: 'Production reliability', tags: ['SQL Server', 'EF Core', 'ASP.NET Core'], points: [
     'Owned root-cause analysis of production incidents across API, domain and database layers.',
@@ -158,7 +156,7 @@ export const DOMAINS = [
 ]
 
 export const FEATURED = {
-  badge: 'FREELANCE',
+  badge: 'Freelance',
   tag: 'Media · Mobile + Web',
   title: 'Hyperlocal News & Media',
   text: 'Mobile-first news platforms that deliver short-format local updates — with community polls, moderated discussion and offline reading across Android, iOS and the web.',
@@ -187,11 +185,11 @@ export const PRINCIPLES = [
   ['Secure by design', 'Authentication and validation are architected in, never bolted on.'],
   ['Root cause, not symptoms', 'Every fix starts with understanding why it broke.'],
   ['Zero-regression releases', 'Shipping fast only matters if nothing else breaks.'],
-  ['Always compounding', 'Currently investing in Azure and CI/CD automation.'],
+  ['Still learning', 'Currently investing in Azure and CI/CD automation.'],
 ]
 
 // ===== Contact =====
 export const CONTACT = {
-  pitch: 'Looking for a backend engineer who owns outcomes, not just tickets? I’m open to senior .NET roles — on-site or remote.',
-  notes: ['senior .NET roles', 'remote-ready'],
+  title: 'Open to senior .NET roles',
+  pitch: 'I’m available for senior .NET backend roles, on-site or remote.',
 }

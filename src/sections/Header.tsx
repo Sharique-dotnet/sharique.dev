@@ -25,7 +25,7 @@ export default function Header() {
             ))}
           </nav>
           <span className="status mono"><span className="status-dot" />open to opportunities</span>
-          <a href="#contact" className="header-cta">Let's Connect</a>
+          <a href="#contact" className="header-cta">Let's connect</a>
         </div>
 
         <button className={'menu-btn' + (menu ? ' open' : '')} onClick={() => setMenu(m => !m)} aria-label="Toggle menu" aria-expanded={menu}>
@@ -37,14 +37,13 @@ export default function Header() {
       {menu && (
         <div className="mobile-menu">
           <nav aria-label="Mobile" className="mobile-nav">
-            {NAV.map(([id, label], i) => (
+            {NAV.map(([id, label]) => (
               <a key={id} href={'#' + id} onClick={close} className={active === id ? 'active' : undefined}>
-                <span>{label}</span>
-                <span className="mono">0{i}</span>
+                {label}
               </a>
             ))}
           </nav>
-          <a href="#contact" onClick={close} className="btn btn-primary mobile-cta">Let's Connect</a>
+          <a href="#contact" onClick={close} className="btn btn-primary mobile-cta">Let's connect</a>
         </div>
       )}
     </header>

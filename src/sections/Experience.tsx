@@ -12,15 +12,15 @@ export default function Experience() {
     <section id="experience" data-nav className="section">
       <div className="container">
         <SectionLabel n="03" cmd="~/experience $ git log --oneline" />
-        <h2 data-reveal="up" className="h2 exp-h2">A track record of shipping enterprise software.</h2>
+        <h2 data-reveal="up" className="h2 exp-h2">A track record of shipping enterprise software</h2>
 
         <div className="exp-grid">
           <aside className="exp-aside">
             <div className="timeline">
-              <span data-reveal="vline" aria-hidden="true" className="timeline-line" />
+              <span data-reveal="fade" aria-hidden="true" className="timeline-line" />
               <ol>
                 {TIMELINE.map((t, i) => (
-                  <li key={t.title} data-reveal="up" style={{ '--d': i * 70 }} className={'tl tl-' + t.tone}>
+                  <li key={t.title} data-reveal="up" style={{ '--d': i * 50 }} className={'tl tl-' + t.tone}>
                     <span className="tl-dot" aria-hidden="true" />
                     <div className="tl-when mono">{t.when}</div>
                     <div className="tl-title">{t.title}</div>
@@ -52,7 +52,7 @@ export default function Experience() {
             </div>
 
             <div className="toggle-row">
-              <button className="link-btn toggle-all mono" onClick={toggleAll}>{allOpen ? '− collapse all' : '+ expand all'}</button>
+              <button className="link-btn mono" onClick={toggleAll}>{allOpen ? '− collapse all' : '+ expand all'}</button>
             </div>
 
             <div className="groups">
@@ -60,7 +60,7 @@ export default function Experience() {
                 const match = tag ? g.tags.includes(tag) : false
                 const isOpen = !!open[i] || match
                 return (
-                  <div key={g.title} data-reveal="up" style={{ '--d': i * 60 }} className={'group' + (match ? ' match' : '') + (tag && !match ? ' dim' : '')}>
+                  <div key={g.title} data-reveal="up" style={{ '--d': i * 50 }} className={'group' + (match ? ' match' : '') + (tag && !match ? ' dim' : '')}>
                     <button className="group-btn" aria-expanded={isOpen} onClick={() => setOpen(o => ({ ...o, [i]: !isOpen }))}>
                       <span className="group-idx mono">{String(i + 1).padStart(2, '0')}</span>
                       <span className="group-title">{g.title}</span>
@@ -69,7 +69,7 @@ export default function Experience() {
                     {isOpen && (
                       <div className="group-body">
                         <ul className="bullets">
-                          {g.points.map(p => <li key={p}><span className="accent mono">›</span><span>{p}</span></li>)}
+                          {g.points.map(p => <li key={p}><span className="bullet mono">›</span><span>{p}</span></li>)}
                         </ul>
                         <div className="group-tags">
                           {g.tags.map(n => <span key={n} className={'group-tag mono' + (n === tag ? ' active' : '')}>{n}</span>)}

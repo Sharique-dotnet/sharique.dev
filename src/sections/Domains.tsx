@@ -7,14 +7,14 @@ export default function Domains() {
       <div className="container">
         <SectionLabel n="04" cmd="~/domains $ ls -la" />
         <div className="head-row">
-          <h2 data-reveal="up" className="h2">Domain expertise.</h2>
+          <h2 data-reveal="up" className="h2">Domain expertise</h2>
           <p data-reveal="up" className="head-note">Industries where I’ve built production systems — and understand the business problems behind them.</p>
         </div>
 
         <div className="domain-grid">
           {DOMAINS.map((d, i) => (
-            // Reveal on a wrapper so the card's hover lift isn't slowed by the reveal transition
-            <div key={d.id} data-reveal="up" style={{ '--d': (i % 2) * 120 }}>
+            // One reveal wrapper per card so the grid cell keeps its full height
+            <div key={d.id} data-reveal="up" style={{ '--d': (i % 2) * 50 }}>
               <article className="domain" style={{ '--radius': d.radius, '--size': d.size, '--base': `${d.base}deg` }}>
                 <div className="domain-top">
                   <div className="glyph-box">
@@ -25,9 +25,9 @@ export default function Domains() {
                 </div>
                 <h3>{d.title}</h3>
                 <p className="domain-problem">{d.problem}</p>
-                <div className="bring mono">WHAT I BRING</div>
+                <div className="bring mono">What I bring</div>
                 <ul className="bullets">
-                  {d.contrib.map(c => <li key={c}><span className="accent mono">›</span><span>{c}</span></li>)}
+                  {d.contrib.map(c => <li key={c}><span className="bullet mono">›</span><span>{c}</span></li>)}
                 </ul>
                 <div className="domain-tech mono">{d.tech}</div>
               </article>
@@ -38,16 +38,16 @@ export default function Domains() {
         <article data-reveal="up" className="featured">
           <div>
             <div className="badges mono">
-              <span className="badge badge-solid">{FEATURED.badge}</span>
-              <span className="badge badge-outline">{FEATURED.tag}</span>
+              <span className="badge">{FEATURED.badge}</span>
+              <span className="badge">{FEATURED.tag}</span>
             </div>
             <h3>{FEATURED.title}</h3>
             <p className="featured-text">{FEATURED.text}</p>
           </div>
           <div>
-            <div className="bring mono">WHAT I BRING</div>
+            <div className="bring mono">What I bring</div>
             <ul className="bullets">
-              {FEATURED.contrib.map(c => <li key={c}><span className="accent mono">›</span><span>{c}</span></li>)}
+              {FEATURED.contrib.map(c => <li key={c}><span className="bullet mono">›</span><span>{c}</span></li>)}
             </ul>
             <div className="featured-tech mono">{FEATURED.tech.map(t => <span key={t}>{t}</span>)}</div>
           </div>

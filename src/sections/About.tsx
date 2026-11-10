@@ -8,7 +8,7 @@ export default function About() {
         <SectionLabel n="01" cmd="~/about $ cat profile.md" />
         <div className="about-grid">
           <div className="min0">
-            <h2 data-reveal="up" className="h2 about-h2">I build the systems businesses run on.</h2>
+            <h2 data-reveal="up" className="h2 about-h2">I build the systems businesses run on</h2>
             <div className="about-text">
               {ABOUT.map((parts, i) => (
                 <p key={i} data-reveal="up">
@@ -18,13 +18,13 @@ export default function About() {
             </div>
           </div>
 
-          <div data-reveal="scale" className="flow-card">
-            <div className="flow-head mono"><span>how_i_work.flow</span><span className="accent">{FLOW.length} steps</span></div>
+          <div data-reveal="up" className="card flow-card">
+            <div className="flow-head mono"><span>how_i_work.flow</span><span>{FLOW.length} steps</span></div>
             <div className="flow-wrap">
-              <span data-reveal="vline" aria-hidden="true" className="flow-line" />
+              <span data-reveal="fade" aria-hidden="true" className="flow-line" />
               <ol className="flow">
                 {FLOW.map(([title, sub], i) => (
-                  <li key={title} data-reveal="up" style={{ '--d': 120 + i * 110 }} className="flow-step">
+                  <li key={title} data-reveal="up" style={{ '--d': i * 50 }} className="flow-step">
                     <span className="flow-n mono">0{i + 1}</span>
                     <div>
                       <div className="flow-title">{title}</div>

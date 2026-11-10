@@ -6,26 +6,13 @@ declare module 'react' {
   }
 }
 
-export function Cursor() {
-  return <span className="cursor" aria-hidden="true" />
-}
-
-// Text that types itself out when scrolled into view (see the reveal system in index.css)
-export function Typed({ text, delay = 0 }: { text: string; delay?: number }) {
-  return (
-    <span className="typed" data-reveal="type" style={{ '--n': text.length, '--d': delay }}>
-      {text}
-    </span>
-  )
-}
-
 // "01 ── ~/about $ cat profile.md" row above each section heading
 export function SectionLabel({ n, cmd, line = true, center = false }: { n: string; cmd: string; line?: boolean; center?: boolean }) {
   return (
-    <div className={'section-label mono' + (center ? ' center' : '')}>
-      <span className="accent">{n}</span>
-      {line && <span className="section-line" data-reveal="line" />}
-      <Typed text={cmd} />
+    <div data-reveal="up" className={'section-label mono' + (center ? ' center' : '')}>
+      <span>{n}</span>
+      {line && <span className="section-line" />}
+      <span>{cmd}</span>
     </div>
   )
 }
